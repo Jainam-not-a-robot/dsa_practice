@@ -1,28 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fast_io ios::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
 #define ll long long
+#define pb push_back
 #define all(x) (x).begin(), (x).end()
+#define vi vector<int>
+#define vll vector<long long>
+#define pii pair<int,int>
+#define pll pair<long long,long long>
 
 int main() {
-    fast_io;
-
-#ifdef LOCAL
-    auto start = chrono::high_resolution_clock::now();
-#endif
-
+    fastio;
     int t = 1;
-    cin >> t; 
-    while (t--) {
-        // solve one testcase here
-    }
-
-#ifdef LOCAL
-    auto end = chrono::high_resolution_clock::now();
-    chrono::duration<double> elapsed = end - start;
-    cerr << "Time: " << elapsed.count() << "s\n";
-#endif
-
+    cin >> t;
+    while (t--){
+        int n;
+        cin>>n;
+        vector<int> v(n);
+        for(int i=0;i<n;i++)cin>>v[i];
+    };
     return 0;
 }
