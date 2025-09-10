@@ -34,6 +34,26 @@ public:
         inorder(root->right);
     }
 
+    vector<vector<int>> levelOrder(Node* root){
+        vector<vector<int>>ans;
+        queue<Node*>q;
+        q.push(root);
+        while(!q.empty()){
+            int size=q.size();
+            vector<int>level;
+            for(int i=0;i<size;i++){
+                Node* newNode=q.front();
+                q.pop();
+                if(newNode->left!=NULL)q.push(newNode->left);
+                if(newNode->right!=NULL)q.push(newNode->right);
+                level.push_back(newNode->data);
+            }
+            ans.push_back(level);
+        }
+        return ans;
+    }
+
+
 };
 
 int main() {
