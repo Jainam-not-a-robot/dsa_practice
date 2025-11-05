@@ -43,7 +43,11 @@ class Graph{
                 }
             }
         }
-        void DFSTraversal(u,vector<bool>&visited){
-            if()
+        void DFSTraversal(int u,vector<bool>&visited){
+            cout<<u<<' ';
+            visited[u]=true;
+            for(int x:graph[u]){
+                if(!visited[x])DFSTraversal(x,visited);
+            }
         }
 };
