@@ -51,7 +51,6 @@ class Graph{
                     DFSTraversal(x,visited);
                 }
             }
-        }
         bool detectCycleByDFS(int u,vector<bool>&visited,int parent){
             visited[u]=true;
             for(int x:graph[u]){
@@ -61,4 +60,27 @@ class Graph{
                 else if(x!=parent)return true;
             }
             return false;
-        };
+        }
+        bool detectCycleByBFS(int u){
+            vector<bool>visited(v,false);
+            queue<pair<int,int>>q;//elem and parent
+            q.push({u,-1});
+            while(!q.empty()){
+                int parent=q.front().second;
+                int node=q.front().first;
+                // visited[node]=true;
+                q.pop();
+                for(int x:graph[node]){
+                    if(!visited[x]){
+                        visited[x]=true;
+                        q.push({x,node});
+                    }
+                    else if(x!=parent){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    };
+    
