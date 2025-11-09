@@ -51,20 +51,18 @@ class Graph{
             }
         }
 
-        bool detectCycleByDFS(int u,vector<bool>&visited,vector<int>&recPath){
+        bool detectCycleByDFS(int u,vector<bool>&visited,vector<bool>&recPath){
             visited[u]=true;
+            recPath[u]=true;
             for(int x:graph[u]){
                 if(!visited[x]){
-                    recPath.push_back(u);
                     if(detectCycleByDFS(x,visited,recPath))return true;
                 }
                 else{
-                    for(int y:recPath){
-                        if(y==u)return true;
-                    }
+                    if(recPath[x])return true;
                 }
             }
-            recPath.pop();
+            recPath[u]=false;
             return false;
         }
 };
