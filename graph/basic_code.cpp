@@ -32,13 +32,14 @@ class Graph{
             q.push(0);
             vector<bool>visited(v,false);
             while(!q.empty()){
+                visited[q.front()]=true;
                 int a=q.front();
                 q.pop();
                 cout<<a<<' ';
                 for(int x:graph[a]){
                     if(!visited[x]){
                         q.push(x);
-                        visited[x]=true;
+                        visited[x];
                     }
                 }
             }
